@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> To-do App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="app">
+        <h1>TODO App</h1>
+        <div class="add__todo">
+            <span>Add New Task </span>
+            <i class="fas fa-plus"></i>
+        </div>
+        <h4>Tasks</h4>
+    </div>
+    <div class="todo__modalbox">
+        <form action="" class="form">
+            <div class="modal__header">
+                <h2>Add New Task</h2>
+                <button><i class="fas fa-close"></i></button>
+            </div>
+            <div class="modal__body">
+                <label for="task__title">Task Title</label>
+                <br><br>
+                <input type="text" class="text__input">
+                <div class="msg"></div>
+                <br><br>
+                <label for="due__date">Due Date</label>
+                <br><br>
+                <input type ='date' class="date__input">
+                <br><br>
+                <label for="description">Description</label>
+                <br><br>
+                <textarea class="description" rows="10" col="30"></textarea>
+                <br><br>
+            </div>
+            <div class="modal__footer">
+                <div class="modal__btns">
+                    <button type="button" class="close__btn"> Close</button>
+                    <button class="add__btn">Add</button>
+                </div>
+                
+            </div>           
+        </form>        
+    </div>
+    <script src='app.js'></script>
+    
+</body>
+</html>

@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --primary-color: #abcea1;
+    --secondary-color: #dcebd8;
+    --button-color:#fb9b2a;
+    --text-color: #6e6e6e;
+    --fontPrimary:'Lato', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--fontPrimary);
+    
+}
+.app {
+    max-width: 400px;
+    height: 600px;
+    border: 5px solid  var(--primary-color);
+    flex: 1;
+}
+.add__todo {
+    display: flex;
+    justify-content: space-between;
+    margin:20px;
+    background-color: var(--secondary-color);
+    padding: 10px;
+    cursor: pointer;
+}
+.add__todo i {
+    background-color: var(--primary-color);
+}
+.app h4 {
+    text-align: center;
+}
+.todo__modalbox {
+    position: absolute;
+    z-index: 1;
+    background-color: #fff;
+    width: 600px;
+    border: 1px solid var(--secondary-color);
+    color: var(--text-color);
+    display: none;
+    
+}
+.modal__header {
+    border-bottom: 1px solid var(--secondary-color);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.modal__header button  {
+    font-size: 25px;
+    border: none;
+    background-color: transparent;
+}
+
+.modal__body {
+    border-bottom: 1px solid var(--secondary-color);
+    padding: 20px;
+}
+.modal__body input  {
+    width: 100%;
+    height: 35px;
+    color: var(--text-color);
+    font-size: 18px;
+    padding: 10px 5px;
+}
+.modal__body label {
+    font-size: 18px;
+    font-weight: bold;
+}
+.modal__body .msg {
+    display: none;
+    color: red;
+}
+.modal__body .description {
+    width: 100%;
+}
+.modal__footer {
+    padding: 20px; 
+}
+.modal__footer .modal__btns {
+   text-align: right;
+}
+.modal__btns .add__btn {
+    background-color: #0039e9;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    margin-left: 10px;
+}
+.modal__btns .close__btn {
+    background-color: #252424;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+}
+
+
