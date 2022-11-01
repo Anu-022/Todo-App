@@ -1,56 +1,116 @@
-const newTodo = document.querySelector('.add__todo'); 
+const addItem = document.querySelector('.add__todo');
+const formModalBox = document.querySelector('.todo__modalbox');
 const form = document.querySelector('.form');
 const textInput = document.querySelector('.text__input');
 const dateInput = document.querySelector('.date__input');
+const description = document.querySelector('.textarea');
 const closeBtn = document.querySelector('.close__btn');
-const newTask = document.querySelector('.todo__modalbox');
-
-
-
-
-//function to Submit form
-function submitForm(event) {
-    event.preventDefault();
-    console.log('Submitted');
-    formValidation();
-
-}
-
-
-//function to add new tasks to todo list
-function addNewTask(e)  {
-    newTask.style.display = 'block';
-    form.addEventListener('submit', submitForm);
-}
-newTodo.addEventListener('click', addNewTask);
+const todoList = document.querySelector('.todo__list__container');
+const clearButton = document.querySelector('.clear__btn');
+const todoItems = [];
 
 
 function acceptData() {
-    let todos = [];
+    const todoObj = {
+        text: textInput.value,
+        date: dateInput.value,
+        description: description.value
+    };
+    todoItems.push(todoObj);
+    localStorage.setItem('list', JSON.stringify(todoItems));
     
+    console.log(todoItems);
 }
-//function to validate form
-function  formValidation(){
-    const errorMessage = document.querySelector('.msg');
-    if(textInput.value == '') {
-        errorMessage.innerHTML = 'Task cannot be blank';
-        errorMessage.style.display = 'block';
+
+function deleteTodoItem(event) {
+    const deleteIcon = event.target;
+    const todo = deleteIcon.parentNode.parentNode.parentNode.parentNode;
+    todo.remove();
+
+}
+function addEventObject() {
+    const deleteTodoBtns = document.querySelectorAll('.delete__todo');
+    const lastDeleteBtn = deleteTodoBtns[deleteTodoBtns.length - 1];
+    lastDeleteBtn.addEventListener('click', deleteTodoItem);
+}
+
+function showTodoItems() {
+     const itemArray = localStorage.getItem('list');
+     const todo__item__array = JSON.parse(itemArray);
+     console.log(todo__item__array)
+     const todoItem = document.createElement('div');
+     todoItem.classList.add('todo__list__items');
+
+     todo__item__array.map(function (item) { 
+        return (
+        todoItem.innerHTML = `
+        <ul class="todo__details" >
+            <li>
+                <div>
+                    <input type="checkbox" class="check__todo">
+                    <span class="todo__item__heading">${item.text}</span>
+                </div>
+                <span class="todo__item__date">${item.date}</span>
+            </li>
+            <li class="description todo__details">
+            <span class= "todo__description">${item.description}</span>
+            <span><i class= "fas fa-trash-alt delete__todo"></i></span>     
+            </li>
+        </ul>          
+        `)
+     });    
+     todoList.appendChild(todoItem);
+     addEventObject();
+}
+
+function formValidation() {
+    const errorMsg = document.querySelector('.msg');
+    if(textInput.value === '') {
+        errorMsg.innerHTML = 'Task cannot be blank';
+        errorMsg.style.display = 'block';
     } else {
-        errorMessage.innerHTML = '';
-        errorMessage.style.display = 'none';
+        errorMsg.style.display = 'none';
+
     }
-    if(!dateInput.value) {
-        console.log('no date');
-        const  date = new Date()
-        dateInput.valueAsDate = date;
-    } 
-    acceptData();
+    if (textInput.value !=='') {
+        acceptData();
+    } else return;
+    showTodoItems();
 }
 
-function closeModalBox(event) {
-    const buttonClicked = event.target;
-    console.log(buttonClicked);
-    newTask.style.display = 'none';
+
+function submitTodoItem (event) {
+    event.preventDefault();
+   formValidation();
+   event.target.reset();
+
+
 }
 
-closeBtn.addEventListener('click', closeModalBox);
+form.addEventListener('submit', submitTodoItem);
+
+function addNewTodo() {
+formModalBox.style.display = 'block';
+}
+addItem.addEventListener('click', addNewTodo);
+
+
+
+
+function closeFormModal(event) {
+  event.preventDefault();
+  formModalBox.style.display = 'none';
+}
+
+closeBtn.addEventListener('click', closeFormModal);
+
+function clearForm(event) {
+    let target = event.target.parentNode.parentNode.parentNode;
+    target.reset();
+    console.log(target);
+
+}
+
+clearButton.addEventListener('click', clearForm);
+
+

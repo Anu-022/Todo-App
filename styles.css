@@ -19,9 +19,14 @@ body {
     font-family: var(--fontPrimary);
     
 }
+h1 {
+    margin-top: 20px;
+    margin-left: 20px;
+
+}
 .app {
     max-width: 400px;
-    height: 600px;
+    height: 650px;
     border: 5px solid  var(--primary-color);
     flex: 1;
 }
@@ -36,11 +41,14 @@ body {
 .add__todo i {
     background-color: var(--primary-color);
 }
-.app h4 {
+.app h2 {
     text-align: center;
+    margin-bottom: 10px;
 }
 .todo__modalbox {
     position: absolute;
+    top: 30px;
+    left: 400px;
     z-index: 1;
     background-color: #fff;
     width: 600px;
@@ -53,12 +61,13 @@ body {
     border-bottom: 1px solid var(--secondary-color);
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px 20px;
 }
 .modal__header button  {
     font-size: 25px;
     border: none;
-    background-color: transparent;
+    border-radius: 3px;
+    padding: 5px;
 }
 
 .modal__body {
@@ -77,14 +86,17 @@ body {
     font-weight: bold;
 }
 .modal__body .msg {
-    display: none;
     color: red;
+    display: none;
 }
-.modal__body .description {
+.modal__body .textarea {
     width: 100%;
+    padding: 20px;
+    font-size: 18px;
+    color: var(--text-color);
 }
 .modal__footer {
-    padding: 20px; 
+    padding: 10px 20px; 
 }
 .modal__footer .modal__btns {
    text-align: right;
@@ -98,7 +110,7 @@ body {
     border: none;
     margin-left: 10px;
 }
-.modal__btns .close__btn {
+.modal__btns .clear__btn {
     background-color: #252424;
     padding: 10px 20px;
     border-radius: 5px;
@@ -106,5 +118,40 @@ body {
     font-size: 18px;
     border: none;
 }
+.todo__list__container {
+    max-height: 450px;
+    overflow-y: auto;
+}
 
+
+.todo__list__items{
+   padding: 10px 15px;
+   margin: 0 5px 20px;
+   background-color: var(--primary-color);
+   border-radius: 3px;
+}
+
+.todo__details li {
+    display: flex;
+    justify-content: space-between;
+}
+ 
+.todo__item__heading {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+}
+.todo__item__date {
+    font-size: 16px;
+    color: #fff;
+}
+.description {
+    padding-top: 10px;
+}
+.description i {
+    color: red;
+}
+.todo__description  {
+    overflow-wrap: break-word;
+}
 

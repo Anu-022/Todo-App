@@ -18,32 +18,32 @@
             <span>Add New Task </span>
             <i class="fas fa-plus"></i>
         </div>
-        <h4>Tasks</h4>
-    </div>
+        <h2>Tasks</h2>
+        <div class="todo__list__container"></div>
     <div class="todo__modalbox">
         <form action="" class="form">
             <div class="modal__header">
                 <h2>Add New Task</h2>
-                <button><i class="fas fa-close"></i></button>
+                <button class='close__btn'><i class="fas fa-close"></i></button>
             </div>
             <div class="modal__body">
                 <label for="task__title">Task Title</label>
                 <br><br>
-                <input type="text" class="text__input">
+                <input type="text" name="textInput" class="text__input">
                 <div class="msg"></div>
                 <br><br>
                 <label for="due__date">Due Date</label>
                 <br><br>
-                <input type ='date' class="date__input">
+                <input type ='date' name="dateInput" class="date__input">
                 <br><br>
                 <label for="description">Description</label>
                 <br><br>
-                <textarea class="description" rows="10" col="30"></textarea>
+                <textarea class="textarea"name="textareaInput" rows="10" col="30"></textarea>
                 <br><br>
             </div>
             <div class="modal__footer">
                 <div class="modal__btns">
-                    <button type="button" class="close__btn"> Close</button>
+                    <button type="button" class="clear__btn"> Clear</button>
                     <button class="add__btn">Add</button>
                 </div>
                 
